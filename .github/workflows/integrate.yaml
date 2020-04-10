@@ -9,7 +9,7 @@ on:
 
 jobs:
 
-  build:
+  test_all:
     runs-on: ubuntu-latest
     steps:
     - name: Set up Go 1.13
@@ -34,5 +34,6 @@ jobs:
     - name: Run test suite
       working-directory: ${{ github.workspace  }}/go/src/github.com/${{ github.repository  }}
       run: |
-        docker exec -it tiup-cluster-control bash
+        docker exec -i tiup-cluster-control bash
+        source ~/.bashrc
         ./tests/run.sh
