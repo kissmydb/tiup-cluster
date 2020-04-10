@@ -6,6 +6,8 @@ set -eu
 # https://stackoverflow.com/a/246128/3858681
 pushd "$( cd "$( dirname "${BASH_SOURCE[0]}"  )" >/dev/null 2>&1 && pwd  )"
 
+PATH=$PATH:/tiup-cluster/bin
+
 . ./script/util.sh
 
 # TODO remove this once embed the files in binary

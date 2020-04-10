@@ -34,6 +34,8 @@ jobs:
     - name: Run test suite
       working-directory: ${{ github.workspace  }}/go/src/github.com/${{ github.repository  }}
       run: |
-        docker exec -i tiup-cluster-control bash
-        source ~/.bashrc
-        ./tests/run.sh
+        # should not use -it
+        # ref: https://stackoverflow.com/questions/43099116/error-the-input-device-is-not-a-tty
+        docker exec  tiup-cluster-control bash /tiup-cluster/tests/run.sh
+        # source ~/.bashrc
+        # ./tests/run.sh
