@@ -25,7 +25,7 @@ jobs:
         path: go/src/github.com/${{ github.repository  }}
 
     - name: Build the docker-compose stack
-      run: ./up.sh --daemon
+      run: ./docker/up.sh --daemon
 
     - name: Check running containers
       run: docker ps
