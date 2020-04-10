@@ -31,5 +31,8 @@ jobs:
     - name: Check running containers
       run: docker ps
 
-    # - name: Run test suite
-    #   run: docker exec backend pytest --skip-auth
+    - name: Run test suite
+      working-directory: ${{ github.workspace  }}/go/src/github.com/${{ github.repository  }}
+      run: |
+        docker exec -it tiup-cluster-control bash
+        ./tests/run.sh
